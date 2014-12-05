@@ -3,19 +3,118 @@
 	<title>My First HTML Form</title>
 </head>
 <body>
+	<h2>User Login</h2>
 	<form method="POST" action="/process-form.php">
 	    <p>
 	        <label for="username">Username</label>
-	        <input id="username" name="username" type="text">
+	        <input id="username" name="username" type="text" placeholder = "Username Here">
 	    </p>
 	    <p>
-	        <label for="password">Password</label>
-	        <input id="password" name="password" type="password">
+	        <label for="password">Password:</label>
+	        <input id="password" name="password" type="password" placeholder = "Password Here">
 	    </p>
 	    <p>
-	        <input type="submit">
+	        <button type="submit">Login:</button>
 	    </p>
 	</form>
-
+	<form>
+	<h2>Compose an Email</h1>
+		<p>
+			<label for="to">To:</label>
+			<input id="to" name="to" type= "text" placeholder = "To">
+		</p>
+		<p>
+			<label for="from">From:</label>
+			<input id="from" name="from" type= "text" placeholder = "From">
+		</p>
+		<p>
+			<label for="subject">Subject:</label>
+			<input id="subject" name="subject" type= "text" placeholder = "Subject">
+		</p>
+		<p>
+			<textarea id="email_body" name="email_body" rows="5" cols="40">Content Here</textarea>
+		</p>
+		<label for="save_copy"> Save to Sent Folder?</label>
+    			<input type="checkbox" id="save_copy" name="save_copy" value="yes" checked>
+		<p>
+			<button type="submit">Send</button>
+		</p>
+	</form>
+	<form>
+		<h2>Multiple Choice Test</h2>
+		<p>What is your Favorite Color?</p>
+			<label>
+			    <input type="radio" id="q1a" name="q1" value="green">
+			    Green
+			</label>
+			<label>
+			    <input type="radio" id="q1b" name="q1" value="blue">
+			    Blue
+			</label>
+			<label>
+			    <input type="radio" id="q1c" name="q1" value="red">
+			    Red
+			</label>
+			<label>
+			    <input type="radio" id="q1d" name="q1" value="pink">
+			    Pink
+			</label>
+			<label>
+			    <input type="radio" id="q1e" name="q1" value="other">
+			    Other
+			</label>
+		<p>How old are you?</p>
+			<label>
+			    <input type="radio" id="q2a" name="q2" value="0-18">
+			    0-18
+			</label>
+			<label>
+			    <input type="radio" id="q2b" name="q2" value="18-20">
+			    18-20
+			</label>
+			<label>
+			    <input type="radio" id="q2c" name="q2" value="21-35">
+			    21-30
+			</label>
+			<label>
+			    <input type="radio" id="q2d" name="q2" value="35-50">
+			    35-50
+			</label>
+			<label>
+			    <input type="radio" id="q2e" name="q2" value="50+">
+			    50+
+			</label>
+		<p>Select All Types Of Music You Enjoy</p>
+			<label>
+				<input type="checkbox" id="q3a" name="q3" value="rock">
+				Rock
+			</label>
+			<label>
+				<input type="checkbox" id="q3b" name="q3" value="rap">
+				Rap
+			</label>
+			<label>
+				<input type="checkbox" id="q3c" name="q3" value="randb">
+				R & B
+			</label>
+			<label>
+				<input type="checkbox" id="q3d" name="q3" value="indie">
+				Indie
+			</label>
+			<label>
+				<input type="checkbox" id="q3e" name="q3" value="edm">
+				EDM
+			</label>
+			<label>
+				<input type="checkbox" id="q3f" name="q3" value="jazz">
+				Jazz
+			</label>
+			<label>
+				<input type="checkbox" id="q3g" name="q3" value="country">
+				Country
+			</label>
+		<p>
+		<button type="submit">Submit</button>
+		</p>
 </body>
 </html>
