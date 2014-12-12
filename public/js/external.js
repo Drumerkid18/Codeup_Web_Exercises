@@ -1,5 +1,5 @@
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var color = colors[Math.floor(Math.random()*colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var color = colors[Math.floor(Math.random()*colors.length)];
 
 // var favorite = 'green';
 
@@ -21,23 +21,30 @@ var color = colors[Math.floor(Math.random()*colors.length)];
 
 // (color == favorite) ? console.log("Green is my favorite color \"steven tyler voice\"" ) : console.log("Some-ting wong. Tis not my favorite color");
 
-switch (color){
-	case "red":
-		console.log("Red is the color of danger");
-		break;
-	case "orange":
-		console.log("Orange is the color of a sunset");
-		break;
-	case "blue":	
-		console.log("Blue is the color of the depths of the ocean");
-		break;
-	case "yellow":
-		console.log("Don't eat the Yellow Snow");
-		break;
-	case "green":
-		console.log("Green is the color of recycling");
-		break;
-	default:
-		console.log("I don't know anything with that color");
+// switch (color){
+// 	case "red":
+// 		console.log("Red is the color of danger");
+// 		break;
+// 	case "orange":
+// 		console.log("Orange is the color of a sunset");
+// 		break;
+// 	case "blue":	
+// 		console.log("Blue is the color of the depths of the ocean");
+// 		break;
+// 	case "yellow":
+// 		console.log("Don't eat the Yellow Snow");
+// 		break;
+// 	case "green":
+// 		console.log("Green is the color of recycling");
+// 		break;
+// 	default:
+// 		console.log("I don't know anything with that color");
+// }
+// i
 
+var i = 100;
+
+for (; i > 0;) {
+    console.log(i);
+    i -= 5;
 }
