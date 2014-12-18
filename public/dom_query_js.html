@@ -23,44 +23,78 @@
         culpa qui officia deserunt mollit anim id est laborum.
     </p>
 
+    <button id="btn1">Change Header!</button>
+    <button id="btn2">Change the Sub-Header!</button>
+    <button id="btn3">Change every other list Item!</button>
+    <button id="btn4">Change the first one!</button>
+    <button id="btn5">Change the Sub-Paragraph!</button>
     <script>
+
 
         // todo: get the main header element by id
         var mainHeader = document.getElementById('main-header');
 
-        mainHeader.innerText = "JavaScript is Cool";
+        var btn1listener = function (event) {
+            mainHeader.innerText = "JavaScript is Cool";
+        }
+
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', btn1listener, false);
 
         // todo: get the sub header element by id
         var subHeader = document.getElementById('sub-header');
 
+
+        var btn2listener = function (event) {
         subHeader.style['color'] = 'blue';
-
-        // todo: get all list items
-        var listItems = document.getElementsByTagName('li');
-
-    
-        for (var i = 0; i < listItems.length; i++){
-            var dbId = listItems[i].attributes['data-dbid'].value;
-        // todo: set text color of li with dbid = 1 to blue
-        // todo: set text color on every other list item to grey
-            if(i % 2 == 0){
-                listItems[i].style['color']= 'grey';
-            }
-            if(dbId == 1){
-                listItems[i].style['color']= 'blue';
-            }
-            
         }
 
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', btn2listener, false);
+
+
+        // todo: get all list items
+
+
+    
+        // todo: set text color of li with dbid = 1 to blue
+        // todo: set text color on every other list item to grey
+        var listItems = document.getElementsByTagName('li');
+        var btn3listener = function (event) {
+            for (var i = 0; i < listItems.length; i++){
+                var dbId = listItems[i].attributes['data-dbid'].value;
+                if(i % 2 == 0){
+                    listItems[i].style['color']= 'grey';
+                }
+            }
+        }
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', btn3listener, false);
+
+        var btn4listener = function (event) {
+            for (var i = 0; i < listItems.length; i++){
+                var dbId = listItems[i].attributes['data-dbid'].value;
+                if(dbId == 1){
+                    listItems[i].style['color']= 'blue';
+                }
+            }
+        }
+
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', btn4listener, false);
             
 
         // todo: get all elements with class name sub-paragraph
-
+        var btn5listener = function (event) {
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         subParagraphs[0].innerText = 'Mission Accomplished!';
+        }
+
+        var btn5 = document.getElementById('btn5');
+        btn5.addEventListener('click', btn5listener, false);
+
 
     </script>
-
 </body>
 </html>
