@@ -9,23 +9,48 @@ require_once('../db_connect.php');
 
 if(!isset($_GET['page'])){
 	$page = 1;
-	$offset = 0;
+	$offNum = 0;
 }else{
 	$page = $_GET['page'];
-	$offset = ($page - 1) * 4;
+	$offNum = ($page - 1) * 4;
 };
+
+
+
+
+
+
 $stmt = $dbc->query('SELECT * FROM national_parks');
 $count = $stmt->rowCount();
-
 $totalPages = ceil($count / 4);
+$limNum = 4;
 
-function getParks($dbc, $offset) {
-    // Bring the $dbc variable into scope somehow
-   return $dbc->query('SELECT * FROM national_parks LIMIT 4 OFFSET ' . $offset)->fetchALL(PDO::FETCH_ASSOC);
 
+// Bring the $dbc variable into scope somehow
+$stmt = $dbc->prepare("SELECT * FROM national_parks LIMIT :limNum OFFSET :offNum");
+
+$stmt->bindValue(':limNum', $limNum, PDO::PARAM_INT);
+$stmt->bindValue(':offNum', $offNum, PDO::PARAM_INT);
+$stmt->execute();
+
+$parks = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+if(!empty($_POST)){
+	$newEntry = $_POST;
+	
+			$input = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
+			$stmt=$dbc->prepare($input);
+			$stmt->bindValue(':name', $newEntry['name'], PDO::PARAM_STR);
+    		$stmt->bindValue(':location',  $newEntry['location'],  PDO::PARAM_STR);
+    		$stmt->bindValue(':date_established', $newEntry['date_established'], PDO::PARAM_STR);
+    		$stmt->bindValue(':area_in_acres',  $newEntry['area_in_acres'],  PDO::PARAM_STR);
+   		 	$stmt->bindValue(':description',  $newEntry['description'],  PDO::PARAM_STR);
+   		 	$stmt->execute();	
+	
 }
 
-$parks = getParks($dbc, $offset);
+
+
 
 $next = $page + 1;
 $previous = $page - 1;
@@ -46,31 +71,75 @@ $previous = $page - 1;
     <link href="/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-<table class="table table-bordered table-condensed">
-	<!-- try and get this relative -->
-	<th>Name</th>
-	<th>Location</th>
-	<th>Date Established</th>
-	<th>Area In Acres</th>
+<div class="page-header center">
+ 	<h1>National Parks</h1>
+</div>
+<div class="container-fluid">
+<div class= "row">
+<div class="col-md-10 col-md-offset-1">
+	<table class="table table-bordered">
+		<!-- try and get this relative -->
+		<th class="center">Name</th>
+		<th class="center">Location</th>
+		<th class="center">Date Established</th>
+		<th class="center">Area In Acres</th>
+		<th class="center">Description</th>
 
 
-	<? foreach ($parks as $key => $park): ?>
-	<tr>
-			<td>
-				<?= $park['location'] ?>
-			</td>
+		<? foreach ($parks as $key => $park): ?>
+		<tr>
+				
 			<td>
 				<?= $park['name'] ?>
 			</td>
+				
+			<td>
+				<?= $park['location'] ?>
+			</td>
+				
 			<td>
 				<?= $park['date_established'] ?>
-			</td>
+			</td>	
+			
 			<td>
 				<?= $park['area_in_acres'] ?>
-			</td>	
-	</tr>	
-	<? endforeach; ?>
-</table>
+			</td>
+			
+			<td>
+				<?= $park['description'] ?>
+			</td>
+									
+		</tr>	
+		<? endforeach; ?>
+	</table>
+</div>
+</div>
+</div>
+
+<form class="center" method="POST" action ="/national_parks.php">
+	<h3>Enter Items</h3>
+	<p>
+		<label for="name">New Name:</label>
+		<input id="name" name="name" type= "text" placeholder = "name">
+	</p>
+	<p>
+		<label for="location">New Location:</label>
+		<input id="location" name="location" type= "text" placeholder = "Location">
+	</p>
+	<p>
+		<label for="date_established">New Date Established:</label>
+		<input id="date_established" name="date_established" type= "text" placeholder = "date_established">
+	</p>
+	<p>
+		<label for="area_in_acres">New Area In Acres:</label>
+		<input id="area_in_acres" name="area_in_acres" type= "text" placeholder = "area_in_acres">
+	</p>
+	<p>
+		<label for="description">New Description:</label>
+		<input id="description" name="description" type= "text" placeholder = "description">
+	</p>	
+	<button type = "submit"> Add New National Park</button>
+</form>
 
 <nav class="center">
   <ul class="pagination">
