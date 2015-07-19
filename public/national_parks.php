@@ -15,10 +15,10 @@ if(!isset($_GET['page'])){
 	$offNum = ($page - 1) * 4;
 };
 
-
-
-
-
+function sanitize($input){
+	htmlentities(strip_tags($input));
+	return $input;
+}
 
 $stmt = $dbc->query('SELECT * FROM national_parks');
 $count = $stmt->rowCount();
@@ -40,11 +40,11 @@ if(!empty($_POST)){
 	
 			$input = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 			$stmt=$dbc->prepare($input);
-			$stmt->bindValue(':name', $newEntry['name'], PDO::PARAM_STR);
-    		$stmt->bindValue(':location',  $newEntry['location'],  PDO::PARAM_STR);
-    		$stmt->bindValue(':date_established', $newEntry['date_established'], PDO::PARAM_STR);
-    		$stmt->bindValue(':area_in_acres',  $newEntry['area_in_acres'],  PDO::PARAM_STR);
-   		 	$stmt->bindValue(':description',  $newEntry['description'],  PDO::PARAM_STR);
+			$stmt->bindValue(':name', sanitize($newEntry['name']), PDO::PARAM_STR);
+    		$stmt->bindValue(':location', sanitize($newEntry['location']),  PDO::PARAM_STR);
+    		$stmt->bindValue(':date_established', sanitize($newEntry['date_established']), PDO::PARAM_STR);
+    		$stmt->bindValue(':area_in_acres', sanitize($newEntry['area_in_acres']),  PDO::PARAM_STR);
+   		 	$stmt->bindValue(':description', sanitize($newEntry['description']),  PDO::PARAM_STR);
    		 	$stmt->execute();	
 	
 }
@@ -120,7 +120,7 @@ $previous = $page - 1;
 	<h3>Enter Items</h3>
 	<p>
 		<label for="name">New Name:</label>
-		<input id="name" name="name" type= "text" placeholder = "name">
+		<input id="name" name="name" type= "text" placeholder = "Name">
 	</p>
 	<p>
 		<label for="location">New Location:</label>
@@ -128,15 +128,15 @@ $previous = $page - 1;
 	</p>
 	<p>
 		<label for="date_established">New Date Established:</label>
-		<input id="date_established" name="date_established" type= "text" placeholder = "date_established">
+		<input id="date_established" name="date_established" type= "text" placeholder = "Year-Month-Day">
 	</p>
 	<p>
 		<label for="area_in_acres">New Area In Acres:</label>
-		<input id="area_in_acres" name="area_in_acres" type= "text" placeholder = "area_in_acres">
+		<input id="area_in_acres" name="area_in_acres" type= "text" placeholder = "Area without Commas">
 	</p>
 	<p>
 		<label for="description">New Description:</label>
-		<input id="description" name="description" type= "text" placeholder = "description">
+		<input id="description" name="description" type= "text" placeholder = "Description">
 	</p>	
 	<button type = "submit"> Add New National Park</button>
 </form>
@@ -150,6 +150,9 @@ $previous = $page - 1;
       </a>
   	<? endif; ?>
     </li>
+   	<? if(($totalPages > 3) && ($page > 2)):?>
+   	<li><a href="?page=<?=$previous-1?>"> <?=$previous-1?> </a> </li>
+   	<? endif; ?>
     <? if($page > 1):?>
    	<li><a href="?page=<?=$previous?>"> <?=$previous?> </a> </li>
    	<? endif; ?>
@@ -158,7 +161,11 @@ $previous = $page - 1;
     <li><a href="?page=<?=$next?>"> <?=$next?> </a> </li>
 	<? endif; ?>
     <li>
-    <? if($page <= 1): ?>	
+    <? if(($totalPages > 3) && ($totalPages >= $next+1)): ?>
+    <li><a href="?page=<?=$next+1?>"> <?=$next+1?> </a> </li>
+	<? endif; ?>
+    <li>
+    <? if($page <= ($totalPages - 1)): ?>	
       <a href="?page=<?=$next?>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>

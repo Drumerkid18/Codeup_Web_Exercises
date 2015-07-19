@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title>Movie Json Js</title>
+</head>
+<body>
+	<script>
+
+
+		var movies = [
+		{
+		"title": "The Hobbit: The Battle of Five Armies",
+		"year": 2014,
+		"rating": "pg-13",
+		"length": 144,
+		"metascore": 65,
+		"director": "Peter Jackson",
+		"description": "Bilbo and Company are forced to engage in a war against an array of combatants and keep the terrifying Smaug from acquiring a kingdom of treasure and obliterating all of Middle-Earth."
+		},
+		{
+		"title": "Annie",
+		"year": 2014,
+		"rating": "pg",
+		"length": 118,
+		"metascore": 23,
+		"director": "Will Gluck",
+		"description": "A foster kid, who lives with her mean foster mom, sees her life change when business tycoon and New York mayoral candidate Will Stacks makes a thinly-veiled campaign move and takes her in."
+		},
+		{
+		"title": "Just Friends",
+		"year": 2005,
+		"rating": "pg-13",
+		"length": 96,
+		"metascore": 46,
+		"director": "Roger Kumble",
+		"description": "While visiting his hometown during Christmas, a man comes face-to-face with his old high school crush whom he was best friends with -- a woman whose rejection of him turned him into a ferocious womanizer"
+		},
+		{
+		"title": "Fast & Furious",
+		"year": 2009,
+		"rating": "pg-13",
+		"length": 107,
+		"metascore": 45,
+		"director": "Justin Lin",
+		"description": "Brian O'Conner, now working for the FBI in LA, teams up with Dominic Toretto to bring down a heroin importer by infiltrating his operation."
+		},
+		{
+		"title": "The Prestige",
+		"year": 20006,
+		"rating": "pg-13",
+		"length": 130,
+		"metascore": 66,
+		"director": "Christopher Nolan",
+		"description": "Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion."
+		}
+		];
+
+		// Title (year) | rating
+		// length: 25 | metascore
+		// director
+		// description
+		// ===============================
+
+		movies.forEach(function(element, index, array){
+		console.log(element.title + "(" + element.year + ")" + " | " + element.rating);
+		if(element.rating == 'pg-13') {
+			console.warn('You must be 13 or have an adult');
+		}
+		console.log("Length: " + element.length + " | " + element.metascore);
+		console.log("Director: " + element.director);
+		console.log("Description: " + element.description);
+		console.log('===============================');
+		});
+
+
+	</script>
+</body>
+</html>

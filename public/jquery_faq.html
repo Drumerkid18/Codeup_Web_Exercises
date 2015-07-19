@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>jquery_faq</title>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<style>
+
+	.invisible {
+		display: none;
+	}
+	.visible{
+		display: inline;
+	}
+
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>1</dt>
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>2</dt>		
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>3</dt>
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>4</dt>
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>5</dt>
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>6</dt>
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>7</dt>		
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>8</dt>		
+		<dd class="invisible visible">this is a test.</dd>
+		<dt>9</dt>		
+		<dd class="invisible visible">this is a test.</dd>	
+		<dt>10</dt>				
+		<dd class="invisible visible">this is a test.</dd>
+	</dl>
+
+	<h1>Parks List</h1>
+    <h3>National Parks</h3>
+	    <ul id="national-parks">
+	        <li>Arches</li>
+	        <li>Badlands</li>
+	        <li>Carlsbad Caverns</li>
+	        <li>Denali</li>
+	        <li>Everglades</li>
+	    </ul>
+    <h3>State Parks of Texas</h3>
+	    <ul id="state-parks-texas">
+	        <li>Abilene</li>
+	        <li>Big Bend</li>
+	        <li>Choke Canyon</li>
+	        <li>Davis Mountains</li>
+	        <li>Enchanted Rock</li>
+	    </ul>	
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+            $('#change').click(function(event) {
+			event.preventDefault();
+			$('.invisible').toggleClass('visible');
+			});
+		});
+			$('li').first().css('background-color', '#FF0');
+
+
+	</script>
+	<a href="#" id="change">Click to remove invisibility from text.</a>
+</body>
+</html>

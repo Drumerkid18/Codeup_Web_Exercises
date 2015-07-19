@@ -86,35 +86,51 @@
 			</label>
 		<p>Select All Types Of Music You Enjoy</p>
 			<label>
-				<input type="checkbox" id="q3a" name="q3" value="rock">
+				<input type="checkbox" id="q3a" name="q3[]" value="rock">
 				Rock
 			</label>
 			<label>
-				<input type="checkbox" id="q3b" name="q3" value="rap">
+				<input type="checkbox" id="q3b" name="q3[]" value="rap">
 				Rap
 			</label>
 			<label>
-				<input type="checkbox" id="q3c" name="q3" value="randb">
+				<input type="checkbox" id="q3c" name="q3[]" value="randb">
 				R & B
 			</label>
 			<label>
-				<input type="checkbox" id="q3d" name="q3" value="indie">
+				<input type="checkbox" id="q3d" name="q3[]" value="indie">
 				Indie
 			</label>
 			<label>
-				<input type="checkbox" id="q3e" name="q3" value="edm">
+				<input type="checkbox" id="q3e" name="q3[]" value="edm">
 				EDM
 			</label>
 			<label>
-				<input type="checkbox" id="q3f" name="q3" value="jazz">
+				<input type="checkbox" id="q3f" name="q3[]" value="jazz">
 				Jazz
 			</label>
 			<label>
-				<input type="checkbox" id="q3g" name="q3" value="country">
+				<input type="checkbox" id="q3g" name="q3[]" value="country">
 				Country
 			</label>
+			<br>
+			<label for="drink">Which drink(s) do you prefer?</label>
+			<select id="drink" name="drink[]" multiple>
+				<option value="coffee">Coffee</option>
+				<option value="energy drink">Energy Drink</option>
+				<option value="alcohol">Alcohol</option>
+				<option value="soda">Soda</option>
+				<option value="tea">Tea</option>
+				<option value="water">Water</option>
+			</select>
 		<p>
 		<button type="submit">Submit</button>
 		</p>
+		<h2>Select Testing</h2>
+		<label for="speed">Do you like to drive fast?</label>
+		<select id="speed" name="speed">
+			<option value=1 selected>Yes</option>
+			<option value=2>No</option>
+		</select>
 </body>
 </html>

@@ -1,0 +1,35 @@
+.box {
+	padding: 10px;
+	border: 1px solid black;
+	height: 50px;
+	width: 150px;
+	margin: 5px 0px 5px 0px;
+	color: white;
+	font-weight: bold;
+}
+
+#red{
+	background-color: rgb(216, 66, 49);
+	text-indent: 0;
+}
+#orange{
+	background-color: rgb(233, 173, 51);
+	margin-left: 30px;
+}
+#yellow{
+	background-color: rgb(252, 246, 50);
+	margin-left: 60px;
+}
+#green{
+	background-color: rgb(87, 140, 5);	
+	margin-left: 90px;
+}
+#blue{
+	background-color: rgb(35, 74, 251);
+	margin-left: 120px;
+}
+#purple{
+	background-color: rgb(223, 139, 240);
+	margin-left: 150px;
+}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disarm the BOM (Browser Object Model)</title>
+    <style type="text/css">
+        #timer {
+            font-size: 60px;
+            color: red;
+
+            position: fixed;
+            right: 10px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mission Impossible!</h1>
+    
+    <div id="timer"></div>
+    
+    <button id="btnDefuse">Defuse the BOM!</button>
+    
+    <script>
+    // Initialize some variables.  You don't have to change these.
+    var count = 0;
+    var maxCount = 10;
+    var detonationTimer = 10; // seconds
+
+    // TODO: Create a variable to represent your setInterval timer,
+    //       which will have a one second interval. It should use
+    //       the following function
+    var setInterval;
+    function gameInterval()
+    {
+            
+        // TODO: Decrement detonationTimer by one each interval.
+       
+        // TODO: Update the timer div with the new value
+        var timer = document.getElementById('timer');
+        // TODO: Console log the current remaining time.
+     
+        // TODO: Explode the BOM with an alert if the timer runs out.
+        // TODO: Clear the interval afterwards.
+
+    }
+
+    // TODO: Create a variable whose value is the btnDefuse element.
+    var btnDefuse = document.getElementById('btnDefuse');
+    // TODO: Attach an event listener to that variable, which runs this function when clicked.
+    btnDefuse.addEventListener('click', gameInterval, false);
+    function defuseButtonClick()
+    {
+        // TODO: Generate the random value for the margin-top css property
+        // TODO: Generate the random value for the margin-left css property
+
+        // TODO: If the count is equal or greater than maxCount
+        if (count >= maxCount) {
+            // TODO: Clear the interval.
+            
+            // TODO: Alert "You are a hero! You disarmed the BOM!"
+            alert('You are a hero! You disarmed the BOM!');
+        } else {
+            // TODO: Assign the random margin top to the button
+            
+            // TODO: Assign the random margin left to the button
+            
+            // TODO: Increment the count by one
+            count++;
+        }
+    }
+    
+    function getRandomInt(min, max)
+    {
+        
+    }
+    </script>
+</body>
+</html>

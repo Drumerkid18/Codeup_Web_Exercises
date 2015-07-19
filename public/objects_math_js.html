@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Objects Math JS</title>
+</head>
+<body>
+    <script>
+    	var circle = {
+		    radius: 3,
+		    getArea: function () {
+		       var area = Math.PI * Math.pow(this.radius, 2);
+		        return area;
+		    },
+		    logInfo: function (round) {
+		        if(round){
+		        	areaRounded = Math.round(this.getArea());
+		        }else{
+		        	areaRounded = this.getArea();
+		        }
+		        console.log('Area of a circle with radius: ' + this.radius + ', is: ' + areaRounded);
+		    }
+		};
+
+		circle.logInfo(false);
+		circle.logInfo(true);
+
+		
+		circle.radius = 5;
+
+		console.log(this.radius);
+		circle.logInfo(false);
+		circle.logInfo(true);
+
+    </script>
+</body>
+</html>

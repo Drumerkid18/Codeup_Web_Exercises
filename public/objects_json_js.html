@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>External JS</title>
+</head>
+<body>
+    <script>
+    	var books = [
+    		{
+    			"title" :"Runner",
+    			"number": "9780618735051",
+    			"author": {
+    				"firstName": "Carl",
+    				"lastName": "Deuker"
+    			}
+    		},
+			{
+    			"title" :"Rich Dad Poor Dad",
+    			"number": "9781612680002",
+    			"author": {
+    				"firstName": "Robert",
+    				"lastName": "Kiyosaki"
+    			}	
+			},
+			{
+    			"title" :"7 Habbits of Highly Effective People",
+    			"number": "9781451639612",
+    			"author": {
+    				"firstName": "Stephen",
+    				"lastName": "Covey"
+    			}	
+			},
+			{
+    			"title" :"Eat that Frog",
+    			"number": "9781576754221",
+    			"author": {
+    				"firstName": "Brian",
+    				"lastName": "Tracy"
+    			}	
+			},
+			{
+    			"title" :"Richest Man in Babylon",
+    			"number": "9780451205360",
+    			"author": {
+    				"firstName": "George",
+    				"lastName": "Clason"
+    			}	
+			}
+
+    	];
+
+
+
+
+
+for (index in books)	{
+		var fullName = books[index].author.firstName + ' ' + books[index].author.lastName;
+
+		console.log("Book #: " + books[index].number);
+		console.log("Title: " + books[index].title);
+		console.log("Author: " + fullName);
+		console.log("---");
+	
+}
+
+
+    </script>
+</body>
+</html>

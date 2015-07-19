@@ -1,0 +1,103 @@
+<!-- No line breaks or paragraphs should be used. Use positioning, floats, and clears as appropriate.
+Each colored box as a 1 pixel border.
+The content area of each box is 50 pixels wide by 50 pixels high.
+The overall size of each box is 72 pixels wide by 72 pixels high.
+There is 50 pixels of space between the header and the boxes.
+There is 50 pixels of space between the boxes themselves.
+The Codeup arrow has been added to each box (download image below). -->
+
+<!DOCTYPE>
+<html>
+<head>
+	<title>Positioning Exercise</title>
+	<style>
+	#container {
+        width: 400px;
+        height: 300px;
+        border: 1px ;
+    }
+	.box {
+	padding: 10px;
+	height: 50px;
+	width: 50px;
+	margin: 30px 25px 5px 25px; /* top px, right px, bottom px, left px margin */
+	color: white;
+	font-weight: bold;
+	}
+
+	#red{ 
+		background-color: rgb(216, 66, 49);
+		float: left;
+		position: relative;
+	}
+	#orange{
+		background-color: rgb(233, 173, 51);
+		float: left;
+		position: relative;
+	}
+	#yellow{
+		background-color: rgb(252, 246, 50);
+		float: left;
+		position: relative;
+	}
+	#green{
+		background-color: rgb(87, 140, 5);	
+		float: left;
+		position: relative;
+	}
+	#blue{
+		background-color: rgb(35, 74, 251);
+		float: left;
+		position: relative;
+	}
+	#purple{
+		background-color: rgb(223, 139, 240);
+		float: left;
+		position: relative;
+	}
+	.arrow{
+	float: right;
+	position: absolute;
+	bottom: 0px;
+	margin: 0px 0px 50px 35px;
+	}
+	.ribbon{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	}
+	</style>
+</head>
+<body>
+	<h2><a href ="http://en.wikipedia.org/wiki/Visible_spectrum">Visible Spectrum Wavelengths</a></h2>
+	<div class="ribbon">
+	<img src="/img/codeup-ribbon.png">
+	</div>
+	<div id="container"> 
+	<div id= "red" class="box">
+		<div class="arrow"> <img src="/img/codeup-arrow.png"> </div>
+		620–750 nm
+	</div>
+	<div id= "orange" class="box">
+		<div class="arrow"> <img src="/img/codeup-arrow.png"> </div>
+		590–620 nm
+	</div>
+	<div id= "yellow" class="box">
+		<div class="arrow"> <img src="/img/codeup-arrow.png"> </div>
+		570–590 nm
+	</div>
+	<div id= "green" class="box">
+		<div class="arrow"> <img src="/img/codeup-arrow.png"> </div>
+		495–570 nm
+	</div>
+	<div id= "blue" class="box">
+		<div class="arrow"> <img src="/img/codeup-arrow.png"> </div>
+		450–495 nm
+	</div>
+	<div id= "purple" class="box">
+		<div class="arrow"> <img src="/img/codeup-arrow.png"> </div>
+		380–450 nm
+	</div>
+	</div>
+</body>
+</html>
