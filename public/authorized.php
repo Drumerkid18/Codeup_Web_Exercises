@@ -1,0 +1,9 @@
+<?php
+
+?>
+
+<html>
+	<body>
+		<h1>Authorized</h1>
+	</body>
+</html>

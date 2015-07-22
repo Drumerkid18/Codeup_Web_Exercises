@@ -3,9 +3,10 @@
 $listAajectives = ["active", "aggressive", "agile", "agitated", "amazing", "ambitious", "ample", "amused", "awful", "awkward"];
 $listNouns		= ["run", "jump", "skip", "hop", "swim", "fall", "drink", "pour", "chug", "spill"];
 
-$selectedNum 	= mt_rand(0,9);
+$selectedNum1 	= mt_rand(0, count($listAajectives) -1);
+$selectedNum2 	= mt_rand(0, count($listNouns) -1);
 
-$serverName 	= $listAajectives[$selectedNum] . $listNouns[$selectedNum];
+$serverName 	= $listAajectives[$selectedNum1] . " " . $listNouns[$selectedNum2];
 
 ?>
 
@@ -16,6 +17,6 @@ $serverName 	= $listAajectives[$selectedNum] . $listNouns[$selectedNum];
 	}
 </style>
 	<body>
-		<h1><?php echo $serverName ?></h1>
+		<h1><?= $serverName ?></h1>
 	</body>
 </html>
